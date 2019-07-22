@@ -2,6 +2,10 @@
     background-color: #222D32;
 }
 
+.red{
+    color: #A94442;
+}
+
 /* lvha */
 a:link,
 a:visited,
@@ -29,6 +33,10 @@ a:active{
     top: 0;
     background-color: #222D32;
     z-index: 999;
+    transition: all 1s;
+}
+.lt_aside.hidemenu{
+    left: -180px;
 }
 .lt_aside .brand{
     width: 100%;
@@ -87,6 +95,10 @@ ul{
 .lt_main{
     padding-left: 180px;
     padding-top: 50px;
+    transition: all 1s;
+}
+.lt_main.hidemenu{
+    padding: 0px;
 }
 .lt_topbar {
     width: 100%;
@@ -104,6 +116,10 @@ ul{
     text-align: center;
     color: #fff;
     font-size: 20px;
+    transition: all 1s;
+}
+.lt_topbar.hidemenu{
+    padding: 0;
 }
 .mt_20{
     margin-top: 20px;
