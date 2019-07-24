@@ -1,7 +1,9 @@
 
 $(function() {
-    var currentPage = 1;
-    var pageSize = 5;
+    var currentPage = 1; //当前页
+    var pageSize = 5;  //每页多少条  
+    var currentId; //当前选中的用户id
+    var isDelete;
     render();
     function render(){
         $.ajax({
@@ -42,7 +44,42 @@ $(function() {
 
 
 
+// 点击启用禁用按钮，显示模态框，通过事件委托绑定事件
 
+$('tbody').on('click', '.btn', function(){
+    //显示模态框
+    $('#userModal').modal('show');
+
+    //获取用户id jquery data() 获取自定义属性
+    currentId = $(this).parent().data("id");
+
+    isDelete = $(this).hasClass('btn-danger') ? 0 : 1;
+
+    
+})
+
+
+//点击确认按钮 修改对应用户状态
+$('#submitBtn').click(function(){
+    $.ajax({
+        type: 'POST',
+        url: '/user/updateUser',
+        data: {
+            id: currentId,
+            isDelete: isDelete
+        },
+        dataType: 'json',
+        success: function( info ){
+            if( info.success ){
+                //关闭模态框
+                $('#userModal').modal('hide');
+                //重新渲染
+                render();
+            }
+
+        }
+    })
+})
 
 
 })
