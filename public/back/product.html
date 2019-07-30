@@ -110,6 +110,8 @@
             <!-- 添加input表单元素  储存brandId 存储品牌 -->
             <input type="hidden" name="brandId">
            
+            <!-- 产品上下架，默认上架，值为1 -->
+            <input type="hidden" name="statu">
           </div>
 
           <!-- 商品名称 -->
@@ -151,13 +153,15 @@
             <!-- 注意:
                     1. 指定name用于让后台获取图片, 所以不能乱写
                     2. 指定data-url, 指定接口地址
+                    3, multiple 多文件上传
             -->
-            <input type="file" name="pic1" data-url="/category/addSecondCategoryPic" id="fileupload" style="display: none;">
+            <input type="file" name="pic1" multiple data-url="/product/addProductPic" id="fileupload" style="display: none;">
           </div>
           <div class="form-group" id="imgBox">
-            <img src="images/none.png" width="100">
-            <!-- 图片地址 -->
-            <input type="hidden" name="brandLogo">
+
+            <!-- 用于标记当前图片上传的状态 -->
+            <input type="hidden" name="picStatus">
+         
           </div>
         </form>
       </div>
